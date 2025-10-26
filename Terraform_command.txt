@@ -5,6 +5,9 @@ terraform plan
 terraform apply
 yes
 
+
+terraform destroy
+
 -----------
 
 …or create a new repository on the command line
