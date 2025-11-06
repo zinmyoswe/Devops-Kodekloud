@@ -8,6 +8,8 @@ yes
 
 terraform destroy
 
+terraform validate
+
 -----------
 
 …or create a new repository on the command line
