@@ -1,0 +1,17 @@
+Day 2: Temporary User Setup with Expiry
+
+As part of the temporary assignment to the Nautilus project, a developer named mariyam requires access for a limited duration.
+ To ensure smooth access management, a temporary user account with an expiry date is needed. Here's what you need to do:
+
+Create a user named mariyam on App Server 1 in Stratos Datacenter. Set the expiry date to 2023-12-07, ensuring the user is created in lowercase as per standard protocol.
+
+
+Solution:
+
+ssh tony@stapp01
+sudo su -
+sudo useradd -e 2023-12-07 mariyam
+
+Validation:
+grep mariyam /etc/passwd
+
