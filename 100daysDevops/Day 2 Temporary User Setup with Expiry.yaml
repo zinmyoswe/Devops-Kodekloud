@@ -15,3 +15,6 @@ sudo useradd -e 2023-12-07 mariyam
 Validation:
 grep mariyam /etc/passwd
 
+#Verify user expiry
+sudo chage -l mariyam
+
