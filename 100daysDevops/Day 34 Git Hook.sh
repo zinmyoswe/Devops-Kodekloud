@@ -102,7 +102,7 @@ Run
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
 
-to set your account's default identity.
+to set your accounts default identity.
 Omit --global to set the identity only in this repository.
 
 fatal: empty ident name (for <natasha@ststor01.stratos.xfusioncorp.com>) not allowed
