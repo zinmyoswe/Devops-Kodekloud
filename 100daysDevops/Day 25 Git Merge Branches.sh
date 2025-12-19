@@ -1,4 +1,4 @@
-The Nautilus application development team has been working on a project repository /opt/ecommerce.git. This repo is cloned at /usr/src/kodekloudrepos on storage server in Stratos DC. They recently shared the following requirements with DevOps team:
+The xfusion application development team has been working on a project repository /opt/ecommerce.git. This repo is cloned at /usr/src/kodekloudrepos on storage server in Stratos DC. They recently shared the following requirements with DevOps team:
 
 
 
@@ -19,9 +19,9 @@ git status
 git branch
 
 #create new branch and switch to that branch
-git checkout -b nautilus
+git checkout -b xfusion
 
-#see branch is change to master to nautilus
+#see branch is change to master to xfusion
 git branch
 
 ls /tmp/index.html
@@ -42,7 +42,7 @@ git checkout master
 git branch
 
 git log --oneline
-git merge nautilus
+git merge xfusion
 
 
 git log --oneline
@@ -51,7 +51,7 @@ git log --oneline
 git push
 
 #push created branch
-git checkout nautilus
+git checkout xfusion
 git push
 
-git push -u origin nautilus
+git push -u origin xfusion
