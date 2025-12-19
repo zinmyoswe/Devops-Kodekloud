@@ -1,0 +1,40 @@
+Day 41 Write a Docker File
+
+As per recent requirements shared by the Nautilus application development team, they need custom images created for one of their projects. Several of the initial testing requirements are already been shared with DevOps team. Therefore, create a docker file /opt/docker/Dockerfile (please keep D capital of Dockerfile) on App server 1 in Stratos DC and configure to build an image with the following requirements:
+
+
+
+a. Use ubuntu:24.04 as the base image.
+
+
+b. Install apache2 and configure it to work on 8087 port. (do not update any other Apache configuration settings like document root etc).
+
+Solution:
+
+ssh tony@stapp01
+sudo su -
+
+mkdir -p /opt/docker
+cd /opt/docker
+
+vi Dockerfile
+
+FROM ubuntu:24.04
+
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    sed -i 's/Listen 80/Listen 8087/' /etc/apache2/ports.conf
+
+EXPOSE 8087
+
+CMD ["apachectl", "-D", "FOREGROUND"]
+
+ls -l /opt/docker/Dockerfile
+
+#build docker file in current dir
+docker build -t apache2:ubuntu .
+
+docker run -d -p 8087:8087 apache2:ubuntu
+
+#check port is work
+curl localhost:8087
