@@ -1,0 +1,57 @@
+Day 47 Docker Python App
+
+A python app needed to be Dockerized, and then it needs to be deployed on App Server 1. We have already copied a requirements.txt file (having the app dependencies) under /python_app/src/ directory on App Server 1. Further complete this task as per details mentioned below:
+
+
+
+Create a Dockerfile under /python_app directory:
+
+Use any python image as the base image.
+Install the dependencies using requirements.txt file.
+Expose the port 5003.
+Run the server.py script using CMD.
+
+Build an image named nautilus/python-app using this Dockerfile.
+
+
+Once image is built, create a container named pythonapp_nautilus:
+
+Map port 5003 of the container to the host port 8099.
+
+Once deployed, you can test the app using curl command on App Server 1.
+
+
+curl http://localhost:8099/
+
+Solution:
+
+ssh tony@stapp01
+cd /python_app
+vi Dockerfile
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY src/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ .
+
+EXPOSE 5003
+
+CMD ["python", "server.py"]
+
+#build docker image
+docker build -t nautilus/python-app .
+
+#run container
+docker run -d --name pythonapp_nautilus -p 8099:5003 nautilus/python-app
+
+#verify container
+docker ps
+
+curl http://localhost:8099/
+
+
