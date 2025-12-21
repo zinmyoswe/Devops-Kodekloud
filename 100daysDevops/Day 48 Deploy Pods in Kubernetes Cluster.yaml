@@ -1,0 +1,34 @@
+Day 48 Deploy Pods in Kubernetes Cluster
+
+The Nautilus DevOps team is diving into Kubernetes for application management. One team member has a task to create a pod according to the details below:
+
+
+Create a pod named pod-nginx using the nginx image with the latest tag. Ensure to specify the tag as nginx:latest.
+
+Set the app label to nginx_app, and name the container as nginx-container.
+
+Note: The kubectl utility on jump_host is configured to operate with the Kubernetes cluster.
+
+Solution:
+
+vi pod-nginx.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nginx
+  labels:
+    app: nginx_app
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+
+#pod create
+kubectl apply -f pod-nginx.yaml
+
+#verify pod
+kubectl get pods
+
+#verify label and container
+kubectl describe pod pod-nginx
